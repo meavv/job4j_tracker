@@ -9,8 +9,6 @@ public class Fix {
 
     public static void main(String[] args) {
         Fix issue = new Fix("Qwe");
-
     }
-
 
 }
