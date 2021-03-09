@@ -10,19 +10,23 @@ public class MaxTest {
 
     @Test
     public void testMax() {
-        int result = Max.max(1, 4);
+        Max a = new Max();
+
+        int result = a.max(1, 4);
         assertThat(result, is(4));
     }
 
     @Test
     public void testTestMax() {
-        int result = Max.max(1, 4, 6);
+        Max a = new Max();
+        int result = a.max(1, 4, 6);
         assertThat(result, is(6));
     }
 
     @Test
     public void testTestMax1() {
-        int result = Max.max(1, 4, 6, 9);
+        Max a = new Max();
+        int result = a.max(1, 4, 6, 9);
         assertThat(result, is(9));
     }
 }
