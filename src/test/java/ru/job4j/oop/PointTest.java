@@ -17,4 +17,17 @@ public class PointTest {
         Assert.assertEquals(excepted, rsl, 0.01);
 
     }
+
+    @Test
+    public void testDistance3() {
+        Point a = new Point(7, 10, 4);
+        Point b = new Point(9, 7, 6);
+
+
+
+        double excepted = 4.12;
+        double rsl = a.distance3d(b);
+        Assert.assertEquals(excepted, rsl, 0.01);
+
+    }
 }
