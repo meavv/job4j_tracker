@@ -35,9 +35,9 @@ public class ShopDropTest {
         products[1] = new Product("B", 4);
         products[2] = new Product("C", 4);
         products[3] = new Product("D", 4);
-        Product[] rsl = ShopDrop.leftShift(products, 2);
+        Product[] rsl = ShopDrop.leftShift(products, 1);
         assertThat(rsl[0].getName(), is("A"));
-        assertThat(rsl[1].getName(), is("B"));
+        assertThat(rsl[1].getName(), is("C"));
         assertThat(rsl[2].getName(), is("D"));
         assertThat(rsl[3], is(nullValue()));
     }
