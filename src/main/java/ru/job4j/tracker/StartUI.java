@@ -52,8 +52,9 @@ public class StartUI {
             else if (select == 4) {
                 System.out.print("Enter id: ");
                 int id = Integer.parseInt(scanner.nextLine());
-                if (tracker.findById(id) != null) {
-                    System.out.println(tracker.findById(id));
+                Item rsl = tracker.findById(id);
+                if (rsl != null) {
+                    System.out.println(rsl);
                 } else {
                     System.out.println("Указанного ИД не существует");
                 }
@@ -63,8 +64,12 @@ public class StartUI {
                 System.out.print("Enter name: ");
                 String name = scanner.nextLine();
                 Item[] items = tracker.findByName(name);
-                for (int i = 0; i < items.length; i++) {
-                    System.out.println(items[i]);
+                if (items.length > 0) {
+                    for (int i = 0; i < items.length; i++) {
+                        System.out.println(items[i]);
+                    }
+                } else {
+                    System.out.println("Заявок с таким именем нет");
                 }
             }
             else if (select == 6) {
