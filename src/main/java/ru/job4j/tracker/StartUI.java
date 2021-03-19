@@ -30,12 +30,23 @@ public class StartUI {
                 String name = scanner.nextLine();
                 Item item = new Item();
                 item.setName(name);
-                tracker.replace(id, item);
+                if (tracker.replace(id, item))
+                {
+                    tracker.replace(id, item);
+                } else {
+                    System.out.println("ОШИБКА");
+                }
             }
+
             else if (select == 3) {
                 System.out.print("Enter id: ");
                 int id = Integer.parseInt(scanner.nextLine());
-                tracker.delete(id);
+                if (tracker.delete(id)) {
+                    tracker.delete(id);
+                } else {
+                    System.out.println("Ошибочка");
+                }
+
             }
             else if (select == 4) {
                 System.out.print("Enter id: ");
