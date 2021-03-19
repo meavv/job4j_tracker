@@ -15,24 +15,25 @@ public class StartUI {
                 System.out.println("=== Create a new Item ====");
                 System.out.print("Enter name: ");
                 String name = scanner.nextLine();
-                Item item = new Item();
+                Item item = new Item(name);
                 tracker.add(item);
-                item.setName(name);
+
             }
             else if (select == 1) {
                 Item[] items = tracker.findAll();
-                System.out.println(Arrays.toString(items));
+                for (Item item : items) {
+                    System.out.println(item);
+                }
             }
             else if (select == 2) {
                 System.out.print("Enter id: ");
                 int id = Integer.parseInt(scanner.nextLine());
                 System.out.print("Enter name: ");
                 String name = scanner.nextLine();
-                Item item = new Item();
-                item.setName(name);
+                Item item = new Item(name);
                 if (tracker.replace(id, item))
                 {
-                    tracker.replace(id, item);
+                    System.out.println("Заявка изменена");
                 } else {
                     System.out.println("ОШИБКА");
                 }
@@ -42,7 +43,7 @@ public class StartUI {
                 System.out.print("Enter id: ");
                 int id = Integer.parseInt(scanner.nextLine());
                 if (tracker.delete(id)) {
-                    tracker.delete(id);
+                    System.out.println("Заявка удалена");
                 } else {
                     System.out.println("Ошибочка");
                 }
@@ -51,13 +52,20 @@ public class StartUI {
             else if (select == 4) {
                 System.out.print("Enter id: ");
                 int id = Integer.parseInt(scanner.nextLine());
-                System.out.println(tracker.findById(id));
+                if (tracker.findById(id) != null) {
+                    System.out.println(tracker.findById(id));
+                } else {
+                    System.out.println("Указанного ИД не существует");
+                }
+
             }
             else if (select == 5) {
                 System.out.print("Enter name: ");
                 String name = scanner.nextLine();
                 Item[] items = tracker.findByName(name);
-                System.out.println(Arrays.toString(items));
+                for (int i = 0; i < items.length; i++) {
+                    System.out.println(items[i]);
+                }
             }
             else if (select == 6) {
                 run = false;
