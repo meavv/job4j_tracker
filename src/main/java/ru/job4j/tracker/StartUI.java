@@ -10,17 +10,19 @@ public class StartUI {
 
             if (select == 0) {
                 StartUI.createItem(input, tracker);
-
             } else if (select == 1) {
                 StartUI.findAll(input, tracker);
             } else if (select == 2) {
                 StartUI.replace(input, tracker);
+
             } else if (select == 3) {
-                StartUI.replace(input, tracker);
+                StartUI.delete(input, tracker);
+
             } else if (select == 4) {
                 StartUI.findById(input, tracker);
+
             } else if (select == 5) {
-                 StartUI.findById(input, tracker);
+                 StartUI.findByName(input, tracker);
             } else if (select == 6) {
                 run = false;
             }
