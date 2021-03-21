@@ -63,7 +63,7 @@ public class StartUI {
     }
 
     public static void replace(Input input, Tracker tracker) {
-        int id = Integer.valueOf(input.askStr("Enter id: "));
+        int id = input.askInt("Enter id: ");
         String name = input.askStr("Enter name: ");
         Item item = new Item(name);
         if (tracker.replace(id, item)) {
@@ -74,7 +74,7 @@ public class StartUI {
     }
 
     public static void delete(Input input, Tracker tracker) {
-        int id = Integer.valueOf(input.askStr("Enter id: "));
+        int id = input.askInt("Enter id: ");
         if (tracker.delete(id)) {
             System.out.println("Заявка удалена");
         } else {
@@ -83,7 +83,7 @@ public class StartUI {
     }
 
     public static void findById(Input input, Tracker tracker) {
-        int id = Integer.valueOf(input.askStr("Enter id: "));
+        int id = input.askInt("Enter id: ");
         Item rsl = tracker.findById(id);
         if (rsl != null) {
             System.out.println(rsl);
