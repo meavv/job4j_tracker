@@ -37,8 +37,7 @@ public class StartUITest {
         Item item = new Item("new item");
         tracker.add(item);
         String[] answers = {
-                String.valueOf(item.getId()), /* id сохраненной заявки в объект tracker. */
-                "del item"
+                String.valueOf(item.getId())
         };
         StartUI.delete(new StubInput(answers), tracker);
         Item del = tracker.findById(item.getId());
