@@ -1,6 +1,12 @@
 package ru.job4j.tracker;
 
 public class ReplaceActions implements UserAction {
+    private final Output out;
+
+    public ReplaceActions(Output out) {
+        this.out = out;
+    }
+
     @Override
     public String name() {
         return "Replace id";
