@@ -17,9 +17,9 @@ public class FindByIdActions implements UserAction {
         int id = input.askInt("Enter id: ");
         Item rsl = tracker.findById(id);
         if (rsl != null) {
-            System.out.println(rsl);
+            out.println(rsl);
         } else {
-            System.out.println("Указанного ИД не существует");
+            out.println("Указанного ИД не существует");
         }
         return true;
     }
