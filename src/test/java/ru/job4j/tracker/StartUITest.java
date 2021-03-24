@@ -72,86 +72,73 @@ public class StartUITest {
     public void findAllActions() {
         Output out = new StubOutput();
         Input in = new StubInput(
-                new String[] {"0", "Q", "1", "2"}
+                new String[] {"0","1"}
         );
         Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("Qwe"));
+        String rsl = "Item{id=" + item.getId() + ", name='" + item.getName() + "'}";
         UserAction[] actions = {
-                new CreateAction(out), new FindAllActions(out), new ExitProgram(out)
+                new FindAllActions(out), new ExitProgram(out)
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
-                "Menu." + System.lineSeparator() +
-                        "0. Create" + System.lineSeparator() +
-                        "1. Find all Item" + System.lineSeparator() +
-                        "2. Exit" + System.lineSeparator() +
-                        "=== Create a new Item ====" + System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
-                        "0. Create" + System.lineSeparator() +
-                        "1. Find all Item" + System.lineSeparator() +
-                        "2. Exit" + System.lineSeparator() +
-                        "Item{id=1, name='Q'}" + System.lineSeparator() +
+                        "0. Find all Item" + System.lineSeparator() +
+                        "1. Exit" + System.lineSeparator() +
+                        rsl + System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
-                        "0. Create" + System.lineSeparator() +
-                        "1. Find all Item" + System.lineSeparator() +
-                        "2. Exit" + System.lineSeparator()
+                        "0. Find all Item" + System.lineSeparator() +
+                        "1. Exit" + System.lineSeparator()
         ));
     }
 
     @Test
     public void findByName() {
         Output out = new StubOutput();
-        Input in = new StubInput(
-                new String[] {"0", "Q", "1", "Q", "2"}
-        );
         Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("Qww"));
+        Input in = new StubInput(
+                new String[] {"0",item.getName(), "1"}
+        );
+
+        String rsl = "Item{id=" + item.getId() + ", name='" + item.getName() + "'}";
         UserAction[] actions = {
-                new CreateAction(out), new FindByNameActions(out), new ExitProgram(out)
+               new FindByNameActions(out), new ExitProgram(out)
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
                 "Menu." + System.lineSeparator() +
-                        "0. Create" + System.lineSeparator() +
-                        "1. Find by name" + System.lineSeparator() +
-                        "2. Exit" + System.lineSeparator() +
-                        "=== Create a new Item ====" + System.lineSeparator() +
+                        "0. Find by name" + System.lineSeparator() +
+                        "1. Exit" + System.lineSeparator() +
+                        rsl + System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
-                        "0. Create" + System.lineSeparator() +
-                        "1. Find by name" + System.lineSeparator() +
-                        "2. Exit" + System.lineSeparator() +
-                        "Item{id=1, name='Q'}" + System.lineSeparator() +
-                        "Menu." + System.lineSeparator() +
-                        "0. Create" + System.lineSeparator() +
-                        "1. Find by name" + System.lineSeparator() +
-                        "2. Exit" + System.lineSeparator()
+                        "0. Find by name" + System.lineSeparator() +
+                        "1. Exit" + System.lineSeparator()
         ));
     }
 
     @Test
     public void findById() {
         Output out = new StubOutput();
-        Input in = new StubInput(
-                new String[] {"0", "Q", "1", "1", "2"}
-        );
         Tracker tracker = new Tracker();
+        Item item = tracker.add(new Item("Qqqq"));
+        Input in = new StubInput(
+                new String[]{"0", String.valueOf(item.getId()), "1"}
+        );
+
+        String rsl = "Item{id=" + item.getId() + ", name='" + item.getName() + "'}";
         UserAction[] actions = {
-                new CreateAction(out), new FindByIdActions(out), new ExitProgram(out)
+                new FindByIdActions(out), new ExitProgram(out)
         };
         new StartUI(out).init(in, tracker, actions);
         assertThat(out.toString(), is(
                 "Menu." + System.lineSeparator() +
-                        "0. Create" + System.lineSeparator() +
-                        "1. Find by id" + System.lineSeparator() +
-                        "2. Exit" + System.lineSeparator() +
-                        "=== Create a new Item ====" + System.lineSeparator() +
+                        "0. Find by id" + System.lineSeparator() +
+                        "1. Exit" + System.lineSeparator() +
+                        rsl + System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
-                        "0. Create" + System.lineSeparator() +
-                        "1. Find by id" + System.lineSeparator() +
-                        "2. Exit" + System.lineSeparator() +
-                        "Item{id=1, name='Q'}" + System.lineSeparator() +
-                        "Menu." + System.lineSeparator() +
-                        "0. Create" + System.lineSeparator() +
-                        "1. Find by id" + System.lineSeparator() +
-                        "2. Exit" + System.lineSeparator()
+                        "0. Find by id" + System.lineSeparator() +
+                        "1. Exit" + System.lineSeparator()
         ));
     }
 }
