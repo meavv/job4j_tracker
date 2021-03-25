@@ -21,15 +21,13 @@ public class UserStore {
         int validName = user.getUsername().length();
         if (user.isValid() && (validName >= 3)) {
             return true;
-        } else {
-            throw new UserInvalidException("Не валидный пользватель");
         }
-
+        throw new UserInvalidException("Не валидный пользватель");
     }
 
     public static void main(String[] args)  {
         User[] users = {
-                new User("Petr Arsentev", true),
+                new User("Petr Arsentev", false),
                 new User("Qwe", true)
         };
       try {
