@@ -76,7 +76,6 @@ public class StartUITest {
         );
         Tracker tracker = new Tracker();
         Item item = tracker.add(new Item("Qwe"));
-        String rsl = "Item{id=" + item.getId() + ", name='" + item.getName() + "'}";
         UserAction[] actions = {
                 new FindAllActions(out), new ExitProgram(out)
         };
@@ -85,7 +84,7 @@ public class StartUITest {
                         "Menu." + System.lineSeparator() +
                         "0. Find all Item" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator() +
-                        rsl + System.lineSeparator() +
+                        item + System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
                         "0. Find all Item" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator()
@@ -101,7 +100,6 @@ public class StartUITest {
                 new String[] {"0",item.getName(), "1"}
         );
 
-        String rsl = "Item{id=" + item.getId() + ", name='" + item.getName() + "'}";
         UserAction[] actions = {
                new FindByNameActions(out), new ExitProgram(out)
         };
@@ -110,7 +108,7 @@ public class StartUITest {
                 "Menu." + System.lineSeparator() +
                         "0. Find by name" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator() +
-                        rsl + System.lineSeparator() +
+                        item + System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
                         "0. Find by name" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator()
@@ -126,7 +124,6 @@ public class StartUITest {
                 new String[]{"0", String.valueOf(item.getId()), "1"}
         );
 
-        String rsl = "Item{id=" + item.getId() + ", name='" + item.getName() + "'}";
         UserAction[] actions = {
                 new FindByIdActions(out), new ExitProgram(out)
         };
@@ -135,7 +132,7 @@ public class StartUITest {
                 "Menu." + System.lineSeparator() +
                         "0. Find by id" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator() +
-                        rsl + System.lineSeparator() +
+                        item + System.lineSeparator() +
                         "Menu." + System.lineSeparator() +
                         "0. Find by id" + System.lineSeparator() +
                         "1. Exit" + System.lineSeparator()
