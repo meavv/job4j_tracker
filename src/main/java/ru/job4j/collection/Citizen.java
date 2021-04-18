@@ -31,4 +31,12 @@ public class Citizen {
     public int hashCode() {
         return Objects.hash(passport);
     }
+
+    @Override
+    public String toString() {
+        return "Citizen{" +
+                "passport='" + passport + '\'' +
+                ", username='" + username + '\'' +
+                '}';
+    }
 }
