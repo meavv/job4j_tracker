@@ -17,11 +17,11 @@ public class PassportOfficeTest {
 
     @Test
     public void add1() {
-        Citizen citizen = new Citizen("2f44a", "Petr Arsentev");
-        Citizen citizen1 = new Citizen("2f44a", "Petr Arsentev");
+        Citizen citizen = new Citizen("123456", "Qwerty");
+        Citizen citizen1 = new Citizen("123456", "Qqq");
         PassportOffice office = new PassportOffice();
         office.add(citizen);
-        office.add(citizen1);
-        assertThat(office.get(citizen.getPassport()), is(citizen));
+        boolean x = office.add(citizen1);
+        assertThat(x, is(false));
     }
 }

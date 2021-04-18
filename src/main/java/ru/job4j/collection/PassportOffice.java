@@ -13,7 +13,6 @@ public class PassportOffice {
             citizens.put(citizen.getPassport(), citizen);
             rsl = true;
         }
-        System.out.println(citizens);
         return rsl;
     }
 
