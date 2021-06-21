@@ -6,16 +6,16 @@ public class BankService {
     private Map<User, List<Account>> users = new HashMap<>();
 
     public void addUser(User user) {
-    if (!users.containsKey(user)) {
-        users.put(user, new ArrayList<Account>());
-    }
+       users.putIfAbsent(user, new ArrayList<Account>());
     }
 
     public void addAccount(String passport, Account account) {
         User user = findByPassport(passport);
-        List <Account> accounts = users.get(user);
-        if (!accounts.contains(account)) {
-            accounts.add(account);
+        if (user != null) {
+            List<Account> accounts = users.get(user);
+            if (!accounts.contains(account)) {
+                accounts.add(account);
+            }
         }
     }
 
@@ -47,16 +47,16 @@ public class BankService {
 
     public boolean transferMoney(String srcPassport, String srcRequisite,
                                  String destPassport, String destRequisite, double amount) {
-        if (findByRequisite(srcPassport, srcRequisite) == null || findByPassport(srcPassport) == null) {
+        Account reqOut = findByRequisite(srcPassport, srcRequisite);
+        Account reqIn = findByRequisite(destPassport, destRequisite);
+        if (reqOut == null || findByPassport(srcPassport) == null) {
             return false;
         }
-        if (amount > findByRequisite(srcPassport,srcRequisite).getBalance()) {
+        if (amount > reqOut.getBalance()) {
             return false;
         }
-        findByRequisite(srcPassport,srcRequisite).setBalance(findByRequisite
-                (srcPassport,srcRequisite).getBalance() - amount);
-        findByRequisite(destPassport,destRequisite).setBalance(findByRequisite
-                (destPassport,destRequisite).getBalance() + amount);
+        reqOut.setBalance(reqOut.getBalance() - amount);
+        reqIn.setBalance(reqIn.getBalance() + amount);
         return true;
     }
 }
