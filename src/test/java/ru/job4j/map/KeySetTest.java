@@ -20,17 +20,4 @@ public class KeySetTest {
                 + "3 - host@host" + ln;
         assertThat(out.toString(), is(expected));
     }
-
-    @Test
-    public void main1() {
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(out));
-        KeySet.main(null);
-        String ln = System.lineSeparator();
-        String expected = "1 - root@root" + ln
-                + "2 - local@local" + ln
-                + "3 - host@host" + ln
-                + "4 - root@root" + ln;
-        assertThat(out.toString(), is(expected));
-    }
 }

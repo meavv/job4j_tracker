@@ -10,11 +10,10 @@ public class KeySet {
                 Map.of(
                         1, "root@root",
                         2, "local@local",
-                        3, "host@host",
-                        4, "root@root"
+                        3, "host@host"
                 )
         );
-       for (int i = 1; i <= map.keySet().size(); i++) {
+        for (int i = 1; i <= map.keySet().size(); i++) {
             System.out.println(i + " - " + map.get(i) );
         }
     }
