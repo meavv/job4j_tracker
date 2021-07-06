@@ -7,7 +7,7 @@ public class Farm {
     public static int sumLegs(Map<Animal, Integer> data) {
         int rsl = 0;
         for (Animal animal : data.keySet()) {
-            return rsl + (animal.getLegs() * data.get(animal));
+            rsl = rsl + (animal.getLegs() * data.get(animal));
         }
         return rsl;
     }
