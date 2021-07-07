@@ -7,9 +7,9 @@ public class Cinema {
         Place freePlace = null;
         for (int i = 0; i < places.length; i++) {
             for (int k = 0; k < places.length; k++) {
-                if ((i + k)%2 == 0) {
+                if ((i + k) % 2 == 0) {
                     if (places[i][k] == null) {
-                        freePlace = new Place(i,k);
+                        freePlace = new Place(i, k);
                         return freePlace;
                     }
                 }
@@ -37,8 +37,8 @@ public class Cinema {
                 return false;
             }
             Place place = (Place) o;
-            return row == place.row &&
-                    cell == place.cell;
+            return row == place.row
+                    && cell == place.cell;
         }
 
         @Override

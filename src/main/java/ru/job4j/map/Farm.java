@@ -11,6 +11,7 @@ public class Farm {
         }
         return rsl;
     }
+
     public static class Animal {
         private String name;
 
@@ -31,8 +32,12 @@ public class Farm {
 
         @Override
         public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
+            if (this == o) {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
             Animal animal = (Animal) o;
             return Objects.equals(name, animal.name);
         }

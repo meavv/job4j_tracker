@@ -25,20 +25,20 @@ public class UserStore {
         throw new UserInvalidException("Не валидный пользватель");
     }
 
-    public static void main(String[] args)  {
+    public static void main(String[] args) {
         User[] users = {
                 new User("Petr Arsentev", false),
                 new User("Qwe", true)
         };
-      try {
-          User user = findUser(users, "Petr Arsentev");
-          if (validate(user)) {
-              System.out.println(user.getUsername() + System.lineSeparator() + user.isValid());
-          }
-      } catch (UserInvalidException r) {
-          r.printStackTrace();
-      } catch (UserNotFoundException e) {
-          e.printStackTrace();
-      }
+        try {
+            User user = findUser(users, "Petr Arsentev");
+            if (validate(user)) {
+                System.out.println(user.getUsername() + System.lineSeparator() + user.isValid());
+            }
+        } catch (UserInvalidException r) {
+            r.printStackTrace();
+        } catch (UserNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 }

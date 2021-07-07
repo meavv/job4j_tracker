@@ -11,7 +11,7 @@ public class RemoveElements {
             data.remove(id);
         }
         for (User user : users) {
-            data.remove(user.getId(),user.getName());
+            data.remove(user.getId(), user.getName());
         }
         return data;
     }
@@ -35,11 +35,14 @@ public class RemoveElements {
 
         @Override
         public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
+            if (this == o) {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
             User user = (User) o;
-            return id == user.id &&
-                    Objects.equals(name, user.name);
+            return id == user.id && Objects.equals(name, user.name);
         }
 
         @Override

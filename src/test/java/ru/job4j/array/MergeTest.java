@@ -21,8 +21,8 @@ public class MergeTest {
     public void whenReorder() {
         int[] expect = {1, 2, 3, 4};
         int[] result = Merge.merge(
-                new int[] {1, 3},
-                new int[] {2, 4}
+                new int[]{1, 3},
+                new int[]{2, 4}
         );
         assertThat(result, is(expect));
     }
@@ -31,8 +31,8 @@ public class MergeTest {
     public void whenAscOrder() {
         int[] expect = {1, 2, 3, 4};
         int[] result = Merge.merge(
-                new int[] {1, 2},
-                new int[] {3, 4}
+                new int[]{1, 2},
+                new int[]{3, 4}
         );
         assertThat(result, is(expect));
     }
@@ -41,8 +41,8 @@ public class MergeTest {
     public void whenLeftLess() {
         int[] expect = {1, 2, 3, 3, 4};
         int[] result = Merge.merge(
-                new int[] {1, 2, 3},
-                new int[] {3, 4}
+                new int[]{1, 2, 3},
+                new int[]{3, 4}
         );
         assertThat(result, is(expect));
     }
@@ -51,8 +51,8 @@ public class MergeTest {
     public void whenLeftGreat() {
         int[] expect = {1, 2, 3, 4, 4};
         int[] result = Merge.merge(
-                new int[] {1, 2},
-                new int[] {3, 4, 4}
+                new int[]{1, 2},
+                new int[]{3, 4, 4}
         );
         assertThat(result, is(expect));
     }
@@ -61,8 +61,8 @@ public class MergeTest {
     public void whenLeftEmpty() {
         int[] expect = {1, 2, 3, 4};
         int[] result = Merge.merge(
-                new int[] {},
-                new int[] {1, 2, 3, 4}
+                new int[]{},
+                new int[]{1, 2, 3, 4}
         );
         assertThat(result, is(expect));
     }

@@ -9,7 +9,7 @@ public class GeomProgression {
         int sum = 0;
         list.add(first);
         for (int i = 1; i < count; i++) {
-            list.add((int) (first*(Math.pow(denominator, i))));
+            list.add((int) (first * (Math.pow(denominator, i))));
         }
         for (Integer integer : list) {
             sum += integer;

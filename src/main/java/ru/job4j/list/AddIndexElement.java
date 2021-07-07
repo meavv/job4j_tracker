@@ -8,7 +8,7 @@ public class AddIndexElement {
         List<String> check = new ArrayList<>(list);
         boolean rsl = false;
         if (!list.contains(str)) {
-            list.add(index,str);
+            list.add(index, str);
         }
         if (check.size() != list.size()) {
             rsl = true;

@@ -18,7 +18,7 @@ public class Converter {
             }
         }
         int[][] list = new int[y][y];
-        x=0;
+        x = 0;
         for (int i = 0; i < list.length; i++) {
             for (int j = 0; j < list[i].length; j++) {
                 if (x < count) {

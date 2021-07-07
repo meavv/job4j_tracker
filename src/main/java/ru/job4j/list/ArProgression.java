@@ -8,7 +8,7 @@ public class ArProgression {
         int sum = 0;
         boolean rsl = true;
         for (int i = 1; i < data.size() - 1; i++) {
-            if  (data.get(i) != (data.get(i-1) + data.get(i + 1))/2){
+            if (data.get(i) != (data.get(i - 1) + data.get(i + 1)) / 2) {
                 rsl = false;
                 break;
             }

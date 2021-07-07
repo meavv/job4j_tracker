@@ -14,7 +14,7 @@ public class SwapRowsTest {
         };
         SwapRows.swap(data, 0, 1);
         assertArrayEquals(
-                new int[][] {
+                new int[][]{
                         {4, 5, 6},
                         {1, 2, 3}
                 },

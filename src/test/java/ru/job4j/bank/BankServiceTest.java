@@ -9,7 +9,6 @@ import static org.junit.Assert.*;
 
 public class BankServiceTest {
 
-
     @Test
     public void addUser() {
         User user = new User("3434", "Petr Arsentev");

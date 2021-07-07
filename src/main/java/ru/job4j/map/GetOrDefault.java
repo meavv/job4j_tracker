@@ -16,7 +16,7 @@ public class GetOrDefault {
         if (store.get(index) == null) {
             return new ArrayList<>();
         } else {
-            return  store.get(index);
+            return store.get(index);
         }
 
     }

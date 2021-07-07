@@ -14,7 +14,7 @@ public class KeySet {
                 )
         );
         for (int i = 1; i <= map.keySet().size(); i++) {
-            System.out.println(i + " - " + map.get(i) );
+            System.out.println(i + " - " + map.get(i));
         }
     }
 }

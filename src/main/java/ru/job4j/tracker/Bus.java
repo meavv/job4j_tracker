@@ -1,18 +1,18 @@
 package ru.job4j.tracker;
 
-public class Bus implements Transport{
+public class Bus implements Transport {
     @Override
     public void passenger(int pass) {
-    int passInBus = pass;
+        int passInBus = pass;
     }
 
     @Override
     public void ride() {
-    boolean ride = true;
+        boolean ride = true;
     }
 
     @Override
-    public  double refuel(double fuel) {
+    public double refuel(double fuel) {
         double price = fuel * 10;
         return price;
     }

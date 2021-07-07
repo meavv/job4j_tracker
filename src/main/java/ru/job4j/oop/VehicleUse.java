@@ -7,7 +7,7 @@ public class VehicleUse {
         Vehicle plane = new Plane();
 
         Vehicle[] vehicles = new Vehicle[]{train, plane, buss};
-        for (Vehicle v: vehicles) {
+        for (Vehicle v : vehicles) {
             v.move();
             v.countPassengers();
         }

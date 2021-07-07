@@ -4,7 +4,7 @@ import ru.job4j.tracker.Item;
 
 import java.util.Comparator;
 
-public class SotrtItemReverse implements Comparator <Item> {
+public class SotrtItemReverse implements Comparator<Item> {
 
     @Override
     public int compare(Item first, Item second) {

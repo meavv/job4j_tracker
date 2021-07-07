@@ -16,7 +16,7 @@ public class FindEl {
     }
 
     public static void main(String[] args) {
-        String[] seasons  = new String[] {"Winter", "Spring", "Summer", "Autumn"};
+        String[] seasons = new String[]{"Winter", "Spring", "Summer", "Autumn"};
         try {
             System.out.println(FindEl.indexOf(seasons, "Spring"));
         } catch (ElementNotFoundException e) {

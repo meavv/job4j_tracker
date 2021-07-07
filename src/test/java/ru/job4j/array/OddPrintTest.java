@@ -14,11 +14,11 @@ public class OddPrintTest {
     public void whenNonEmpty() {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
-        OddPrint.print(new int[] {1, 2, 3, 4});
+        OddPrint.print(new int[]{1, 2, 3, 4});
         String ln = System.lineSeparator();
         assertThat(out.toString(), is(
-                "4" + ln +
-                        "2" + ln
+                "4" + ln
+                        + "2" + ln
         ));
     }
 
@@ -26,7 +26,7 @@ public class OddPrintTest {
     public void whenEmpty() {
         ByteArrayOutputStream out = new ByteArrayOutputStream();
         System.setOut(new PrintStream(out));
-        OddPrint.print(new int[] {1, 3, 5});
+        OddPrint.print(new int[]{1, 3, 5});
         assertThat(out.toString(), is(""));
     }
 

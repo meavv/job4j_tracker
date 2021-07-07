@@ -3,7 +3,7 @@ package ru.job4j.tracker;
 import java.util.Comparator;
 import java.util.Objects;
 
-public class Item implements Comparable <Item> {
+public class Item implements Comparable<Item> {
     private int id;
     private String name;
 
@@ -29,18 +29,20 @@ public class Item implements Comparable <Item> {
 
     @Override
     public String toString() {
-        return "Item{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return "Item{"
+                + "id=" + id
+                + ", name='" + name + '\''
+                + '}';
     }
-
-
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
+        if (this == o) {
+            return true;
+        }
+        if (o == null || getClass() != o.getClass()) {
+            return false;
+        }
         Item item = (Item) o;
         return id == item.id && Objects.equals(name, item.name);
     }
@@ -50,10 +52,9 @@ public class Item implements Comparable <Item> {
         return Objects.hash(id, name);
     }
 
-
     @Override
     public int compareTo(Item o) {
-        return CharSequence.compare(getName(),o.getName());
+        return CharSequence.compare(getName(), o.getName());
     }
 
 }

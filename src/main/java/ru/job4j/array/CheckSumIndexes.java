@@ -17,12 +17,12 @@ public class CheckSumIndexes {
                     data[i][j] = 0;
                     count1++;
                 } else {
-                list[count] = data[i][j];
+                    list[count] = data[i][j];
                     count++;
-                 }
+                }
             }
         }
-        list = Arrays.copyOf(list,x-count1);
+        list = Arrays.copyOf(list, x - count1);
         return list;
     }
 }

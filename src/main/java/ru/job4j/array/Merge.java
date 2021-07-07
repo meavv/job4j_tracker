@@ -8,16 +8,18 @@ public class Merge {
             if (i < left.length) {
                 rsl[i] = left[i];
             } else {
-                rsl[i] = right[i- left.length];
+                rsl[i] = right[i - left.length];
             }
         }
-        for (int i = 0; i < rsl.length; i++)
-            for (int j = i + 1; j < rsl.length; j++)
+        for (int i = 0; i < rsl.length; i++) {
+            for (int j = i + 1; j < rsl.length; j++) {
                 if (rsl[j] < rsl[i]) {
                     t = rsl[i];
                     rsl[i] = rsl[j];
                     rsl[j] = t;
                 }
+            }
+        }
         return rsl;
     }
 }

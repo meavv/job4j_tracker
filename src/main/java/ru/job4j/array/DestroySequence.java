@@ -7,12 +7,12 @@ public class DestroySequence {
             if (i < 5) {
                 rsl[i] = '0';
             }
-            if  (i >= seq.length-5) {
+            if (i >= seq.length - 5) {
                 rsl[i] = '1';
             }
-            if (i >= 5 && i < seq.length-5){
-               rsl[i] = seq[i];
-           }
+            if (i >= 5 && i < seq.length - 5) {
+                rsl[i] = seq[i];
+            }
         }
         return rsl;
     }

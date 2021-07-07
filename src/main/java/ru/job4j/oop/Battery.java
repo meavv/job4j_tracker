@@ -6,6 +6,6 @@ public class Battery {
     public void exchange(Battery another) {
         another.load = this.load + another.load;
         this.load = 0;
-     }
+    }
 
 }

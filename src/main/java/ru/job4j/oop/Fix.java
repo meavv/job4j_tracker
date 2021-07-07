@@ -4,8 +4,8 @@ public class Fix {
     private String desc;
 
     public Fix(String text) {
-         this.desc = text;
-     }
+        this.desc = text;
+    }
 
     public static void main(String[] args) {
         Fix issue = new Fix("Qwe");

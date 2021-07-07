@@ -8,7 +8,7 @@ public class Pangram {
     public static boolean checkString(String s) {
         int count = 0;
         HashSet<Character> names = new HashSet<Character>();
-        char[] result = s.replaceAll("\\s+","").toCharArray();
+        char[] result = s.replaceAll("\\s+", "").toCharArray();
         for (char c : result) {
             if (names.add(c)) {
                 count++;

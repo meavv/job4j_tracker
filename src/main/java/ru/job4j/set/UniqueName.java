@@ -5,7 +5,7 @@ import java.util.*;
 public class UniqueName {
     public static int collectUniqueName(List<User> users) {
         int count = 0;
-        HashSet <User> set = new HashSet<User>();
+        HashSet<User> set = new HashSet<User>();
         for (User user : users) {
             if (set.add(user)) {
                 count++;
@@ -29,8 +29,12 @@ public class UniqueName {
 
         @Override
         public boolean equals(Object o) {
-            if (this == o) return true;
-            if (o == null || getClass() != o.getClass()) return false;
+            if (this == o) {
+                return true;
+            }
+            if (o == null || getClass() != o.getClass()) {
+                return false;
+            }
             User user = (User) o;
             return Objects.equals(name, user.name);
         }

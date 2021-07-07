@@ -11,7 +11,7 @@ public class ItemSorter {
         return items;
     }
 
-    public static  List<Item> reverse(List items) {
+    public static List<Item> reverse(List items) {
         Collections.sort(items, Collections.reverseOrder());
         return items;
     }

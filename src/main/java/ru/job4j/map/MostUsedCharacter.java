@@ -4,9 +4,9 @@ import java.util.*;
 
 public class MostUsedCharacter {
     public static char getMaxCount(String str) {
-        TreeMap <Character, Integer> treeSet = new TreeMap<>();
+        TreeMap<Character, Integer> treeSet = new TreeMap<>();
         char rsl = ' ';
-        str = str.replaceAll("\\s+","").toLowerCase(Locale.ROOT);
+        str = str.replaceAll("\\s+", "").toLowerCase(Locale.ROOT);
         char[] strToArray = str.toCharArray();
         for (char c : strToArray) {
             treeSet.putIfAbsent(c, 0);

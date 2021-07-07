@@ -9,7 +9,7 @@ public class Validator {
                 count++;
             }
         }
-        if (count < (data.length/2)) {
+        if (count < (data.length / 2)) {
             rsl = true;
         }
         return rsl;
