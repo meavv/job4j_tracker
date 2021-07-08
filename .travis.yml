@@ -18,3 +18,8 @@ notifications:
       - c.c.c.p@bk.ru
     on_success: never # default: change
     on_failure: always # default: always
+    env:
+
+      global:
+
+        - CODECOV_TOKEN="4ecabe9e-7b62-4be4-80d4-09c0a91154b9"
