@@ -9,19 +9,22 @@ public class Departments {
         for (String value : deps) {
             String start = "";
             for (String el : value.split("/")) {
-                tmp.add(start + el);
-                start = el + "/";
+                if (start.equals("")) {
+                    start = el;
+                } else {
+                    start = start + "/" + el;
+                }
+                tmp.add(start);
             }
         }
         return new ArrayList<>(tmp);
     }
 
-    public static List<String> sortAsc(List<String> orgs) {
+    public static void sortAsc(List<String> orgs) {
         orgs.sort(Comparator.naturalOrder());
-        return orgs;
     }
 
     public static void sortDesc(List<String> orgs) {
-        orgs.sort(new DepDescComp());
+        orgs.sort(String::compareTo);
     }
 }
