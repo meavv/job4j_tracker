@@ -25,6 +25,6 @@ public class Departments {
     }
 
     public static void sortDesc(List<String> orgs) {
-        orgs.sort(String::compareTo);
+        orgs.sort(new DepDescComp());
     }
 }
