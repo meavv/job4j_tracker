@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 public class StudentToMap {
-    public static  Map <String, Student> toMap(List<Student> students) {
+    public static Map<String, Student> toMap(List<Student> students) {
         return students.stream()
                 .collect(Collectors.toMap(
                         Student::getSurname,

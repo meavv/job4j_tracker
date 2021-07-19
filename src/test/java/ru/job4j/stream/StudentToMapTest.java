@@ -18,8 +18,8 @@ public class StudentToMapTest {
         Student student2 = new Student(11, "B");
         Student student3 = new Student(12, "C");
         Student student4 = new Student(13, "D");
-        List <Student> list = List.of(student1,student2,student3,student4,student11);
-        Map <String, Student> excepted = new HashMap<>();
+        List<Student> list = List.of(student1, student2, student3, student4, student11);
+        Map<String, Student> excepted = new HashMap<>();
         excepted.put(student1.getSurname(), student1);
         excepted.put(student2.getSurname(), student2);
         excepted.put(student3.getSurname(), student3);
