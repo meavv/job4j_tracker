@@ -13,8 +13,7 @@ public class Stream {
             consumer.accept(i);
         }
         System.out.println(arrayList);
-        List<Integer> list = arrayList.stream().filter(
-                a -> a > 0
+        List<Integer> list = arrayList.stream().filter(a -> a > 0
         ).collect(Collectors.toList());
         System.out.println(list);
     }
