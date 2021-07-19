@@ -1,8 +1,15 @@
 package ru.job4j.stream;
 
+import ru.job4j.comparator.ThenComparingMethod;
+
+import java.util.Comparator;
 import java.util.Objects;
 
 public class Address {
+    public String getCity() {
+        return city;
+    }
+
     private String city;
 
     private String street;

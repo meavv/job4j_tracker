@@ -18,12 +18,14 @@ public class ProfilesTest {
         Profile profile2 = new Profile(address2);
         Address address3 = new Address("Пермь", "Улица2", 11, 500);
         Profile profile3 = new Profile(address3);
-        List<Profile> profiles = List.of(profile1, profile2, profile3);
+        Address address4 = new Address("Пермь", "Улица2", 11, 500);
+        Profile profile4 = new Profile(address4);
+        List<Profile> profiles = List.of(profile1, profile2, profile3, profile4);
         Profiles pr = new Profiles();
         List<Address> list = pr.collect(profiles);
         List<Address> excepted = new ArrayList<>();
-        excepted.add(address1);
         excepted.add(address2);
+        excepted.add(address1);
         excepted.add(address3);
         assertThat(list, is(excepted));
     }
