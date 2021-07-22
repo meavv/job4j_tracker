@@ -5,8 +5,8 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class Matrix {
-    public static List<Integer> mtrx(Integer[][] i) {
-        return Arrays.stream(i)
+    public static List<Integer> mtrx(Integer[][] matrix) {
+        return Arrays.stream(matrix)
                 .flatMap(Arrays::stream)
                 .collect(Collectors.toList());
     }
