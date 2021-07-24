@@ -1,5 +1,7 @@
 package ru.job4j.map;
 
+import ru.job4j.collection.Stream;
+
 import java.util.Map;
 import java.util.Optional;
 import java.util.Set;
@@ -12,26 +14,19 @@ public class College {
     }
 
     public Optional<Student> findByAccount(String account) {
-        Optional<Student> rsl = Optional.empty();
-        for (Student s : students.keySet()) {
-            if (account.equals(s.getAccount())) {
-                rsl = Optional.of(s);
-                break;
-            }
-        }
-        return rsl;
+        return students.keySet()
+                .stream()
+                .filter(s -> s.getAccount().equals(account))
+                .findFirst();
     }
 
     public Optional<Subject> findBySubjectName(String account, String name) {
         Optional<Subject> rsl = Optional.empty();
         if (findByAccount(account).isPresent()) {
             Set<Subject> subjects = students.get(findByAccount(account).get());
-            for (Subject subj : subjects) {
-                if (name.equals(subj.getName())) {
-                    rsl = Optional.of(subj);
-                    break;
-                }
-            }
+            return subjects.stream()
+                    .filter(s -> s.getName().equals(name))
+                    .findFirst();
         }
         return rsl;
     }
