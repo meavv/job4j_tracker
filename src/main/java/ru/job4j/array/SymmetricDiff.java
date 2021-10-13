@@ -1,7 +1,6 @@
 package ru.job4j.array;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class SymmetricDiff {
     public static int[] diff(int[] left, int[] right) {
