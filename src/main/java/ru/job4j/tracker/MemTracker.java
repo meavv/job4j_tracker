@@ -4,10 +4,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Tracker {
+public class MemTracker implements Store {
     private final List<Item> items = new ArrayList<>();
     private int ids = 1;
     private int size = 0;
+
+    @Override
+    public void init() {
+
+    }
 
     public Item add(Item item) {
         item.setId(ids++);
@@ -63,5 +68,10 @@ public class Tracker {
             return true;
         }
         return false;
+    }
+
+    @Override
+    public void close() throws Exception {
+
     }
 }

@@ -6,18 +6,17 @@ public class RightShift {
 
     public static void shift(int[] nums, int count) {
         int i = 0;
-        while (i < count){
+        while (i < count) {
             RightShift.shift(nums);
             i++;
         }
     }
 
-
     private static void shift(int[] nums) {
-        int [] rsl = new int[nums.length];
+        int[] rsl = new int[nums.length];
         for (int i = 0; i < nums.length; i++) {
-            int x = i+1;
-            if (i == nums.length -1) {
+            int x = i + 1;
+            if (i == nums.length - 1) {
                 x = 0;
             }
             rsl[x] = nums[i];

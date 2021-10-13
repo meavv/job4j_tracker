@@ -13,7 +13,7 @@ public class SymmetricDiff {
             if (!list.contains(k)) {
                 list.add(k);
             } else {
-                list.remove(k-1);
+                list.remove(k - 1);
             }
         }
         int[] arr = new int[list.size()];

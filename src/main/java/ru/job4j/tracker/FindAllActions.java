@@ -15,10 +15,9 @@ public class FindAllActions implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, SqlTracker tracker) {
         List<Item> items = tracker.findAll();
         for (Item item : items) {
-
             out.println(item);
         }
         return true;

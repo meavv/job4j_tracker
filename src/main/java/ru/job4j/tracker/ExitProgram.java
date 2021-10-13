@@ -13,7 +13,7 @@ public class ExitProgram implements UserAction {
     }
 
     @Override
-    public boolean execute(Input input, Tracker tracker) {
+    public boolean execute(Input input, SqlTracker tracker) {
         return false;
     }
 }
