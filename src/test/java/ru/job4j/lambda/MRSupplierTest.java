@@ -10,7 +10,7 @@ public class MRSupplierTest {
 
     @Test
     public void test() {
-        Supplier<String> supplier = MRSupplier.supplier();
+        Supplier supplier = MRSupplier.supplier();
         assertEquals("", supplier.get());
     }
 

@@ -11,6 +11,10 @@ public class SqlTracker implements Store {
 
     private static Connection cn;
 
+    public SqlTracker(Connection cn) {
+        this.cn  = cn;
+    }
+
     public void init() {
         try (InputStream in = SqlTracker.class
                 .getClassLoader().getResourceAsStream("app.properties")) {
@@ -92,6 +96,7 @@ public class SqlTracker implements Store {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        System.out.println(list);
         return list;
     }
 

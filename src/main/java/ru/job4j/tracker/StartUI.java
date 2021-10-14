@@ -1,9 +1,12 @@
 package ru.job4j.tracker;
 
+import java.sql.Connection;
 import java.util.ArrayList;
 import java.util.List;
 
 public class StartUI {
+
+    private static Connection cn;
     private final Output out;
 
     public StartUI(Output out) {
@@ -34,7 +37,7 @@ public class StartUI {
     public static void main(String[] args) {
         Output output = new ConsoleOutput();
         Input input = new ValidateInput(output, new ConsoleInput());
-        try (Store tracker = new SqlTracker()) {
+        try (Store tracker = new SqlTracker(cn)) {
             tracker.init();
             List<UserAction> actions = new ArrayList<>();
             actions.add(new CreateAction(output));
