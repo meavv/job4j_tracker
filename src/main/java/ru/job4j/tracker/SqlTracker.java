@@ -27,13 +27,6 @@ public class SqlTracker implements Store {
         }
     }
 
-    public static Timestamp time() throws Exception {
-        long millis = System.currentTimeMillis();
-        Timestamp timestamp = new Timestamp(millis);
-        LocalDateTime localDateTime = timestamp.toLocalDateTime();
-        return Timestamp.valueOf(localDateTime);
-    }
-
     @Override
     public void close() throws Exception {
         if (cn != null) {
@@ -46,7 +39,7 @@ public class SqlTracker implements Store {
         try (PreparedStatement ps = cn.prepareStatement("insert into items (name, created) "
                 + "values (?, ?)", Statement.RETURN_GENERATED_KEYS)) {
             ps.setString(1, item.getName());
-            ps.setTimestamp(2, time());
+            ps.setTimestamp(2, Timestamp.valueOf((LocalDateTime.now())));
             ps.execute();
             try (ResultSet genKeys = ps.getGeneratedKeys()) {
                 if (genKeys.next()) {
@@ -64,9 +57,10 @@ public class SqlTracker implements Store {
     public boolean replace(int id, Item item) {
         boolean result = false;
         try (PreparedStatement statement =
-                     cn.prepareStatement("update items set name = ? where id = ?")) {
+                     cn.prepareStatement("update items set name = ?, created = ? where id = ?")) {
             statement.setString(1, item.getName());
-            statement.setInt(2, id);
+            statement.setTimestamp(2, Timestamp.valueOf((LocalDateTime.now())));
+            statement.setInt(3, id);
             result = statement.executeUpdate() != 0;
         } catch (Exception e) {
             e.printStackTrace();
@@ -122,14 +116,15 @@ public class SqlTracker implements Store {
         try (PreparedStatement st = cn.prepareStatement("select * from items where id = ?")) {
             st.setInt(1, id);
             ResultSet rs = st.executeQuery();
-            while (rs.next()) {
+            if (rs.next()) {
                 item.setId(rs.getInt(1));
                 item.setName(rs.getString(2));
                 item.setCreated(rs.getTimestamp(3).toLocalDateTime());
+                return item;
             }
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return item;
+        return null;
     }
 }
