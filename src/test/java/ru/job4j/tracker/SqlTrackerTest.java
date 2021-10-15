@@ -114,8 +114,8 @@ public class SqlTrackerTest {
         tracker.add(item2);
         tracker.add(item3);
         tracker.add(item4);
-        List<Item> ex = List.of(item, item4);
-        assertEquals(tracker.findByName("item"), ex);
+        List<Item> ex = List.of(item2);
+        assertEquals(tracker.findByName("2"), ex);
     }
 
 }
