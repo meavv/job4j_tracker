@@ -92,7 +92,7 @@ public class SqlTracker implements Store {
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
                 list.add(new Item(rs.getInt("id"), rs.getString("name"),
-                        rs.getTimestamp("created")));
+                        rs.getTimestamp("created"), rs.getString("description")));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -107,7 +107,8 @@ public class SqlTracker implements Store {
             st.setString(1, "%" + key + "%");
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                list.add(new Item(rs.getInt(1), rs.getString(2), rs.getTimestamp(3)));
+                list.add(new Item(rs.getInt(1), rs.getString(2), rs.getTimestamp(3),
+                        rs.getString(4)));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -122,7 +123,8 @@ public class SqlTracker implements Store {
             st.setInt(1, id);
             ResultSet rs = st.executeQuery();
             if (rs.next()) {
-                item = new Item(rs.getInt(1), rs.getString(2), rs.getTimestamp(3));
+                item = new Item(rs.getInt(1), rs.getString(2), rs.getTimestamp(3),
+                        rs.getString(4));
                 return item;
             }
         } catch (Exception e) {

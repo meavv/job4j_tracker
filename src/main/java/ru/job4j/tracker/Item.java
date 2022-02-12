@@ -17,6 +17,7 @@ public class Item implements Comparable<Item> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String name;
+    private String description;
 
     private LocalDateTime created = LocalDateTime.now();
 
@@ -27,10 +28,11 @@ public class Item implements Comparable<Item> {
         this.name = name;
     }
 
-    public Item(int id, String name, Timestamp created) {
+    public Item(int id, String name, Timestamp created, String description) {
         this.id = id;
         this.name = name;
         this.created = created.toLocalDateTime();
+        this.description = description;
     }
 
     public int getId() {
@@ -80,4 +82,11 @@ public class Item implements Comparable<Item> {
         return CharSequence.compare(getName(), o.getName());
     }
 
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
+    }
 }
