@@ -61,7 +61,6 @@ public class HbmTracker implements Store, AutoCloseable {
         return rsl;
     }
 
-
     @Override
     public List<Item> findAll() {
         Session session = sf.openSession();
@@ -93,7 +92,6 @@ public class HbmTracker implements Store, AutoCloseable {
         session.close();
         return result;
     }
-
 
     @Override
     public void close() throws Exception {
