@@ -34,31 +34,32 @@ public class HbmTracker implements Store, AutoCloseable {
     @Override
     public boolean replace(int id, Item item) {
         Session session = sf.openSession();
-        boolean rsl = false;
         session.beginTransaction();
-        Item newItem = session.get(Item.class, id);
-        newItem.setName(item.getName());
-        session.update(newItem);
+        String hql = "update ru.job4j.tracker.Item set name = :nameParam, "
+                + "description = :descriptionParam,"
+                + " created = :createdParam where id = :idParam";
+        var query = session.createQuery(hql);
+        query.setParameter("nameParam", item.getName());
+        query.setParameter("descriptionParam", item.getDescription());
+        query.setParameter("createdParam", item.getCreated());
+        query.setParameter("idParam", id);
+        int result = query.executeUpdate();
         session.getTransaction().commit();
-        if (session.get(Item.class, id) == newItem) {
-            rsl = true;
-        }
         session.close();
-        return rsl;
+        return result != 0;
     }
 
     @Override
     public boolean delete(int id) {
         Session session = sf.openSession();
-        boolean rsl = false;
         session.beginTransaction();
-        session.delete(session.get(Item.class, id));
+        String hql = "delete ru.job4j.tracker.Item where id = :idParam";
+        var query = session.createQuery(hql);
+        query.setParameter("idParam", id);
+        int result = query.executeUpdate();
         session.getTransaction().commit();
-        if (session.get(Item.class, id) == null) {
-            rsl = true;
-        }
         session.close();
-        return rsl;
+        return result != 0;
     }
 
     @Override
@@ -73,11 +74,7 @@ public class HbmTracker implements Store, AutoCloseable {
 
     @Override
     public List<Item> findByName(String key) {
-        Session session = sf.openSession();
-        session.beginTransaction();
-        List<Item> result = session.createQuery("from ru.job4j.tracker.Item").list();
-        session.getTransaction().commit();
-        session.close();
+        List<Item> result = findAll();
         return result.stream()
                 .filter(a -> a.getName().contains(key))
                 .collect(Collectors.toList());
